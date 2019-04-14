@@ -70,26 +70,9 @@ import wwCode from './wysiwygCommands/code';
 import wwCodeBlock from './wysiwygCommands/codeBlock';
 
 // langs
-import './langs/en_US';
-import './langs/ko_KR';
 import './langs/zh_CN';
-import './langs/ja_JP';
-import './langs/nl_NL';
-import './langs/es_ES';
-import './langs/de_DE';
-import './langs/ru_RU';
-import './langs/fr_FR';
-import './langs/uk_UA';
-import './langs/tr_TR';
-import './langs/fi_FI';
-import './langs/cs_CZ';
-import './langs/ar_AR';
-import './langs/pl_PL';
-import './langs/zh_TW';
-import './langs/gl_ES';
 
 const __nedInstance = [];
-const gaTrackingId = 'UA-129966929-1';
 
 /**
  * @callback addImageBlobHook
@@ -124,7 +107,6 @@ class ToastUIEditor {
     * @param {boolean} [options.useCommandShortcut=true] - whether use keyboard shortcuts to perform commands
     * @param {boolean} [options.useDefaultHTMLSanitizer=true] - use default htmlSanitizer
     * @param {string[]} [options.codeBlockLanguages] - supported code block languages to be listed. default is what highlight.js supports
-    * @param {boolean} [options.usageStatistics=true] - send hostname to google analytics
     * @param {string[]} [options.toolbarItems] - toolbar items.
     * @param {boolean} [options.hideModeSwitch=false] - hide mode switch tab bar
     * @param {string[]} [options.exts] - extensions
@@ -141,32 +123,31 @@ class ToastUIEditor {
       initialEditType: 'markdown',
       height: '300px',
       minHeight: '200px',
-      language: 'en_US',
+      language: 'zh_CN',
       useDefaultHTMLSanitizer: true,
       useCommandShortcut: true,
       codeBlockLanguages: CodeBlockManager.getHighlightJSLanguages(),
-      usageStatistics: true,
       toolbarItems: [
         'heading',
         'bold',
-        'italic',
+        //'italic',
         'strike',
         'divider',
         'hr',
-        'quote',
+        //'quote',
         'divider',
-        'ul',
-        'ol',
+        //'ul',
+        //'ol',
         'task',
         'indent',
         'outdent',
         'divider',
         'table',
-        'image',
-        'link',
+        //'image',
+        //'link',
         'divider',
-        'code',
-        'codeblock'
+        //'code',
+        //'codeblock'
       ],
       hideModeSwitch: false,
       customConvertor: null
@@ -242,9 +223,6 @@ class ToastUIEditor {
 
     this._addDefaultCommands();
 
-    if (this.options.usageStatistics) {
-      util.sendHostname('editor', gaTrackingId);
-    }
   }
 
   /**
